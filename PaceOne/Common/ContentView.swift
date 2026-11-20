@@ -2,15 +2,19 @@ import SwiftUI
 
 //MARK: - TAB-BAR
 struct ContentView: View {
+    @State private var habitStore = HabitStore()
+    @State private var usageStore = AppUsageStore()
+    @State private var dateProvider = CurrentDateProvider()
+
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(habitStore: habitStore, dateProvider: dateProvider)
                 .tabItem {
-                    Label("Home", systemImage: "house.fill")
+                    Label("Главная", systemImage: "house.fill")
                 }
-            ProfileView()
+            ProfileView(habitStore: habitStore, usageStore: usageStore, dateProvider: dateProvider)
                 .tabItem {
-                    Label("Profile", systemImage: "person.fill")
+                    Label("Профиль", systemImage: "person.fill")
                 }
         }
     }

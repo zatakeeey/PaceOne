@@ -8,6 +8,7 @@ struct swiftuitestApp: App {
         WindowGroup {
             ContentView()
                 .preferredColorScheme(appTheme.colorScheme)
+                .dynamicTypeSize(.large)
         }
     }
 }

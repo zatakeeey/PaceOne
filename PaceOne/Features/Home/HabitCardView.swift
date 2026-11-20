@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HabitCardView: View {
     let habit: Habit
+    var currentDate: Date = Date()
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -33,15 +34,15 @@ struct HabitCardView: View {
 
     private var weekdayRow: some View {
         HStack(spacing: 10) {
-            ForEach(["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"], id: \.self) { day in
-                Text(day)
+            ForEach(habit.currentWeek(on: currentDate)) { day in
+                Text(day.title)
                     .font(.caption)
                     .fontWeight(.semibold)
-                    // neon
-                    .foregroundStyle(.white)
-                    .shadow(color: habit.color.color.opacity(0.9), radius: 2)
-                    .shadow(color: habit.color.color.opacity(0.7), radius: 5)
-                    .shadow(color: habit.color.color.opacity(0.5), radius: 10)
+                    .foregroundStyle(.white.opacity(day.isCompleted ? 1 : 0.4))
+                    .shadow(color: habit.color.color.opacity(day.isCompleted ? 0.9 : 0), radius: 2)
+                    .shadow(color: habit.color.color.opacity(day.isCompleted ? 0.7 : 0), radius: 5)
+                    .shadow(color: habit.color.color.opacity(day.isCompleted ? 0.5 : 0), radius: 10)
+                    .accessibilityLabel("\(day.title): \(day.isCompleted ? "выполнено" : "не выполнено")")
             }
         }
     }
