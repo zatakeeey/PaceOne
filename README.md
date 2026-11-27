@@ -6,6 +6,15 @@
 
 Проект для портфолио iOS-разработчика. Версия 1.0 находится на этапе подготовки к публикации в App Store.
 
+## Скриншоты
+
+<p>
+  <img src="docs/screenshots/home.png" width="190" alt="Главная">
+  <img src="docs/screenshots/habit-detail.png" width="190" alt="Подробности привычки">
+  <img src="docs/screenshots/create-habit.png" width="190" alt="Создание привычки">
+  <img src="docs/screenshots/profile.png" width="190" alt="Профиль">
+</p>
+
 ## Возможности
 
 - Создание и редактирование привычек с выбором эмодзи и цвета.
